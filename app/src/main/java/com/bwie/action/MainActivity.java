@@ -6,6 +6,8 @@ import android.view.Window;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
+import com.kson.slidingmenu.SlidingMenu;
+import com.kson.slidingmenu.app.SlidingFragmentActivity;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -19,9 +21,11 @@ import java.util.List;
 import adapter.MyAdapter;
 import bean.News;
 import bean.News2;
+import fragment.LeftFragment;
+import fragment.RightFragment;
 
 @ContentView(R.layout.activity_main)
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends SlidingFragmentActivity {
 
     private String url="http://v.juhe.cn/toutiao/index";
     @ViewInject(R.id.lv) ListView lv;
@@ -29,13 +33,29 @@ public class MainActivity extends AppCompatActivity {
     private MyAdapter adapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getSupportActionBar().hide();
-        //setContentView(R.layout.activity_main);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         x.view().inject(this);
         initData();
+        initMenu();
+    }
+
+    private void initMenu() {
+        //添加左菜单
+        setBehindContentView(R.layout.fragment1);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment1,new LeftFragment()).commit();
+
+
+        SlidingMenu menu=getSlidingMenu();
+        menu.setMode(SlidingMenu.LEFT_RIGHT);
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+        menu.setBehindOffsetRes(R.dimen.BehindOffsetRes);
+
+        //设置右菜单
+        menu.setSecondaryMenu(R.layout.fragment2);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment2,new RightFragment()).commit();
+
     }
 
     /**
@@ -104,10 +124,6 @@ public class MainActivity extends AppCompatActivity {
             String thumbnail_pic_s = dataBean.thumbnail_pic_s;
             News2 news2=new News2(title,date,author_name,thumbnail_pic_s);
             list.add(news2);
-
-
-
-
         }
 
 
