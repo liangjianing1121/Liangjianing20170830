@@ -104,6 +104,10 @@ public class MainActivity extends AppCompatActivity {
             String thumbnail_pic_s = dataBean.thumbnail_pic_s;
             News2 news2=new News2(title,date,author_name,thumbnail_pic_s);
             list.add(news2);
+
+
+
+
         }
 
 

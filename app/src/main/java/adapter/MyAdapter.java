@@ -22,6 +22,7 @@ import bean.News2;
 public class MyAdapter extends BaseAdapter {
     private Context context;
     private List<News2> list;
+    //定义布局类型
     private final int atype=0;
     private final int btype=1;
 
