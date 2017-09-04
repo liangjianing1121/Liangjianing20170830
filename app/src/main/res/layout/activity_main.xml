@@ -7,22 +7,40 @@
     tools:context="com.bwie.action.MainActivity"
         android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff3333"
+        >
+        <ImageView
+            android:onClick="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon"
+            android:padding="10dp"/>
     <TextView
 
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="今日头条"
         android:gravity="center"
-        android:background="#ff3333"
         android:textColor="#ffffff"
         android:textSize="25sp"
         />
+        <ImageView
+            android:onClick="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/more"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"/>
+</RelativeLayout>
 
-    <ListView
-        android:id="@+id/lv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:divider="#333333"
-        android:dividerHeight="1dp"/>
+
+<view.HorizontalScrollViewMenu
+    android:id="@+id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"></view.HorizontalScrollViewMenu>
+
 
 </LinearLayout>

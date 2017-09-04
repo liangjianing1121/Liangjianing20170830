@@ -10,6 +10,7 @@ public class News2 {
     private String date;
     private String author_name;
     private String thumbnail_pic_s;
+    private String url;
 
     @Override
     public String toString() {
@@ -18,14 +19,11 @@ public class News2 {
                 ", date='" + date + '\'' +
                 ", author_name='" + author_name + '\'' +
                 ", thumbnail_pic_s='" + thumbnail_pic_s + '\'' +
+                ", url='" + url + '\'' +
                 '}';
     }
 
-    public News2() {
-    }
-
     public String getTitle() {
-
         return title;
     }
 
@@ -57,11 +55,24 @@ public class News2 {
         this.thumbnail_pic_s = thumbnail_pic_s;
     }
 
-    public News2(String title, String date, String author_name, String thumbnail_pic_s) {
+    public String getUrl() {
+        return url;
+    }
 
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public News2() {
+
+    }
+
+    public News2(String title, String date, String author_name, String thumbnail_pic_s, String url) {
         this.title = title;
         this.date = date;
         this.author_name = author_name;
         this.thumbnail_pic_s = thumbnail_pic_s;
+        this.url = url;
+
     }
 }

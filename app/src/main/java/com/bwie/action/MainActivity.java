@@ -1,7 +1,10 @@
 package com.bwie.action;
 
+import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.ListView;
 
@@ -21,16 +24,30 @@ import java.util.List;
 import adapter.MyAdapter;
 import bean.News;
 import bean.News2;
+import fragment.Fragment1;
+import fragment.Fragment10;
+import fragment.Fragment2;
+import fragment.Fragment3;
+import fragment.Fragment4;
+import fragment.Fragment5;
+import fragment.Fragment6;
+import fragment.Fragment7;
+import fragment.Fragment8;
+import fragment.Fragment9;
 import fragment.LeftFragment;
 import fragment.RightFragment;
+import view.HorizontalScrollViewMenu;
 
 @ContentView(R.layout.activity_main)
 public class MainActivity extends SlidingFragmentActivity {
 
     private String url="http://v.juhe.cn/toutiao/index";
-    @ViewInject(R.id.lv) ListView lv;
-    private List<News2> list;
+
     private MyAdapter adapter;
+    private List<String> list;
+    private List<Fragment> fragments;
+    private HorizontalScrollViewMenu tabhost;
+    private SlidingMenu menu;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +57,37 @@ public class MainActivity extends SlidingFragmentActivity {
         initData();
         initMenu();
     }
+    private void initData() {
+        list = new ArrayList<>();
+        fragments = new ArrayList<>();
+        tabhost = (HorizontalScrollViewMenu) findViewById(R.id.tabhost);
+
+        list.add("头条");
+        list.add("社会");
+        list.add("国内");
+        list.add("国际");
+        list.add("娱乐");
+        list.add("体育");
+        list.add("军事");
+        list.add("科技");
+        list.add("财经");
+        list.add("时尚");
+
+        fragments.add(new Fragment1());
+        fragments.add(new Fragment2());
+        fragments.add(new Fragment3());
+        fragments.add(new Fragment4());
+        fragments.add(new Fragment5());
+        fragments.add(new Fragment6());
+        fragments.add(new Fragment7());
+        fragments.add(new Fragment8());
+        fragments.add(new Fragment9());
+        fragments.add(new Fragment10());
+
+        tabhost.display(list,fragments);
+
+
+    }
 
     private void initMenu() {
         //添加左菜单
@@ -47,7 +95,7 @@ public class MainActivity extends SlidingFragmentActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment1,new LeftFragment()).commit();
 
 
-        SlidingMenu menu=getSlidingMenu();
+        menu = getSlidingMenu();
         menu.setMode(SlidingMenu.LEFT_RIGHT);
         menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
         menu.setBehindOffsetRes(R.dimen.BehindOffsetRes);
@@ -58,74 +106,19 @@ public class MainActivity extends SlidingFragmentActivity {
 
     }
 
-    /**
-     * 初始化数据
-     */
-    private void initData() {
-        list = new ArrayList<>();
-        adapter = new MyAdapter(this, list);
-        lv.setAdapter(adapter);
-        RequestParams params=new RequestParams(url);
-        params.addQueryStringParameter("key","22a108244dbb8d1f49967cd74a0c144d");
-        x.http().post(params, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                System.out.println(result);
-                parseData(result);
-                setData();
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-
-            }
-
-            @Override
-            public void onFinished() {
-
-            }
-        });
+    public void left(View v){
+        menu.showMenu();
     }
 
-    /**
-     * 更新数据
-     */
-    private void setData() {
-        if(adapter==null)
-        {
-            adapter=new MyAdapter(this,list);
-            lv.setAdapter(adapter);
-        }
-        else
-        {
-            adapter.notifyDataSetChanged();
-        }
+    public void right(View v){
+        menu.showSecondaryMenu();
     }
+    public void login(View v){
 
-    /**
-     * 解析数据
-     * @param result
-     */
-    private void parseData(String result) {
-
-        Gson gson=new Gson();
-        News news = gson.fromJson(result, News.class);
-        List<News.ResultBean.DataBean> data = news.result.data;
-        for (int i = 0; i < data.size(); i++) {
-            News.ResultBean.DataBean dataBean = data.get(i);
-            String author_name = dataBean.author_name;
-            String title = dataBean.title;
-            String date = dataBean.date;
-            String thumbnail_pic_s = dataBean.thumbnail_pic_s;
-            News2 news2=new News2(title,date,author_name,thumbnail_pic_s);
-            list.add(news2);
-        }
+        Intent intent=new Intent(this,Main2Activity.class);
+        startActivity(intent);
 
 
     }
+
 }
