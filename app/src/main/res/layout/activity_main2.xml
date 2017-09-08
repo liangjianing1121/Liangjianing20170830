@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/main_bg_color">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,11 +24,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="登录你的头条,精彩永不丢失"
             android:textSize="18dp"
-            android:textColor="#2A2A2A"
+            android:textColor="@color/tv_color"
             android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
@@ -83,7 +85,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="未注册手机验证后自动登录"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textColor="@color/tv_color"/>
 
     </RelativeLayout>
 

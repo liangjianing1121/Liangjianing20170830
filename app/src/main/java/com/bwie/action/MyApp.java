@@ -13,6 +13,8 @@ import com.umeng.socialize.UMShareAPI;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.x;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by DELL on 2017/8/30.
  */
@@ -31,6 +33,9 @@ public class MyApp extends Application {
         initImageLoader();
         context=this;
         MobSDK.init(this, "20a51956e7bce", "5bec7fcb5852a9935e909022f68efced");
+
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
     }
 
     /**

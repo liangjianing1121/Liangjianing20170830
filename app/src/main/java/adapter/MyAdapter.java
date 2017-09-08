@@ -1,6 +1,7 @@
 package adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -25,6 +26,7 @@ public class MyAdapter extends BaseAdapter {
     //定义布局类型
     private final int atype=0;
     private final int btype=1;
+    private boolean pic;
 
     public MyAdapter(Context context, List<News2> list) {
         this.context = context;
@@ -84,6 +86,8 @@ public class MyAdapter extends BaseAdapter {
                     holder1.iv=view.findViewById(R.id.iv);
                     view.setTag(holder1);
 
+
+
                     break;
                 case btype:
 
@@ -111,25 +115,32 @@ public class MyAdapter extends BaseAdapter {
             }
 
         }
-
+        SharedPreferences sp = context.getSharedPreferences("con", Context.MODE_PRIVATE);
+        pic = sp.getBoolean("pic",true);
 
         switch (type)
         {
-
-
             case atype:
                 holder1.tv_title.setText(list.get(i).getTitle());
                 holder1.tv_date.setText(list.get(i).getDate());
                 holder1.tv_name.setText(list.get(i).getAuthor_name());
-                ImageLoader.getInstance().displayImage(list.get(i).getThumbnail_pic_s(),holder1.iv);
 
+                if(pic ){
+
+                    ImageLoader.getInstance().displayImage(list.get(i).getThumbnail_pic_s(),holder1.iv);
+                }
                 break;
             case btype:
 
                 holder2.tv_title.setText(list.get(i).getTitle());
                 holder2.tv_date.setText(list.get(i).getDate());
                 holder2.tv_name.setText(list.get(i).getAuthor_name());
-                ImageLoader.getInstance().displayImage(list.get(i).getThumbnail_pic_s(),holder2.iv);
+                if(pic){
+                    ImageLoader.getInstance().displayImage(list.get(i).getThumbnail_pic_s(),holder2.iv);
+                }
+
+
+
                 break;
         }
         return view;

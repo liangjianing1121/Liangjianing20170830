@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 
-public class XiangQingActivity extends AppCompatActivity {
+public class XiangQingActivity extends BaseActivity implements View.OnClickListener {
 
     private WebView wv;
 
@@ -29,14 +29,18 @@ public class XiangQingActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     private void initView() {
 
         wv = (WebView) findViewById(R.id.wv);
+        wv.setOnClickListener(this);
+    }
 
 
+    @Override
+    public void onClick(View view) {
+
+        scrollToFinishActivity();
     }
 }

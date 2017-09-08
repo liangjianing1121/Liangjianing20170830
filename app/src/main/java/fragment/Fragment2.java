@@ -21,8 +21,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import adapter.MyAdapter;
+import bean.NetNews;
 import bean.News;
 import bean.News2;
+import dao.NewsDao;
+import utils.NetWorkInfoUtils;
 import view.xlistview.XListView;
 
 /**
@@ -36,6 +39,7 @@ public class Fragment2 extends Fragment implements XListView.IXListViewListener 
     private String url="http://v.juhe.cn/toutiao/index?key=22a108244dbb8d1f49967cd74a0c144d&type=shehui";
     private List<News2> list;
     private MyAdapter adapter;
+    private NewsDao dao;
 
     @Nullable
     @Override
@@ -56,17 +60,43 @@ public class Fragment2 extends Fragment implements XListView.IXListViewListener 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent=new Intent(getActivity(), XiangQingActivity.class);
-                intent.putExtra("url",list.get(i).getUrl());
+                intent.putExtra("url",list.get(i-1).getUrl());
                 startActivity(intent);
             }
         });
 
+        NetWorkInfoUtils netWorkInfoUtils=new NetWorkInfoUtils();
+        netWorkInfoUtils.verify(getActivity(), new NetWorkInfoUtils.NetWork() {
+            @Override
+            public void netWifiVisible() {
+                getData();
+            }
+
+            @Override
+            public void netUnVisible() {
+
+
+                NetNews select = dao.select("shehui");
+                String result = select.getResult();
+                if(select!=null) {
+                    parseData(result);
+                    setData();
+                }
+
+            }
+
+            @Override
+            public void netmobileVisible() {
+
+            }
+        });
     }
 
     private void initData() {
 
         adapter = new MyAdapter(getActivity(),list);
         lv.setAdapter(adapter);
+        dao = new NewsDao(getActivity());
     }
     public void getData() {
 

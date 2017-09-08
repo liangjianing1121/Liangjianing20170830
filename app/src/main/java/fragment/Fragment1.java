@@ -22,8 +22,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import adapter.MyAdapter;
+import bean.NetNews;
 import bean.News;
 import bean.News2;
+import dao.NewsDao;
+import utils.NetWorkInfoUtils;
+import utils.NetWorkInfoUtils.NetWork;
 import view.xlistview.XListView;
 
 /**
@@ -37,6 +41,7 @@ public class Fragment1 extends Fragment implements XListView.IXListViewListener{
     private String url="http://v.juhe.cn/toutiao/index?key=22a108244dbb8d1f49967cd74a0c144d&type=top";
     private List<News2> list;
     private MyAdapter adapter;
+    private NewsDao dao;
 
     @Nullable
     @Override
@@ -57,21 +62,43 @@ public class Fragment1 extends Fragment implements XListView.IXListViewListener{
              @Override
              public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                  Intent intent=new Intent(getActivity(), XiangQingActivity.class);
-                 intent.putExtra("url",list.get(i).getUrl());
+                 intent.putExtra("url",list.get(i-1).getUrl());
                  startActivity(intent);
              }
          });
+        NetWorkInfoUtils netWorkInfoUtils=new NetWorkInfoUtils();
+        netWorkInfoUtils.verify(getActivity(), new NetWork() {
+            @Override
+            public void netWifiVisible() {
+                getData();
+            }
 
+            @Override
+            public void netUnVisible() {
+                NetNews select = dao.select("top");
+                String result = select.getResult();
+                if(select!=null) {
+                    parseData(result);
+                    setData();
+                }
+            }
+            @Override
+            public void netmobileVisible() {
+
+            }
+        });
     }
 
     private void initData() {
 
         adapter = new MyAdapter(getActivity(),list);
         lv.setAdapter(adapter);
+        dao = new NewsDao(getActivity());
     }
     public void getData() {
 
         RequestParams params=new RequestParams(url);
+        params.addParameter("key"," 22a108244dbb8d1f49967cd74a0c144d");
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
@@ -142,8 +169,8 @@ public class Fragment1 extends Fragment implements XListView.IXListViewListener{
     @Override
     public void onLoadMore() {
         getData();
-
     }
+
 
 
 }

@@ -3,4 +3,20 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <color name="main_bg_color">#ffffff</color>
+    <color name="title_bg_color">#CC3131</color>
+    <color name="title_color">#ffffff</color>s
+    <color name="tv_color">#000000</color>
+
+    <color name="hor_bg_color">#C2BCBC</color>
+    <color  name="xian">#F4F5F6</color>
+    <color name="xiaozi">#ACACAC</color>
+
+    <color name="tv_name">#333333</color>
+    <color name="tv_date">#999999</color>
+
+
+
 </resources>

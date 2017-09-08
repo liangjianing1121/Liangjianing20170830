@@ -2,11 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/main_bg_color">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/main_bg_color">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,20 +25,21 @@
             android:layout_centerHorizontal="true"
             android:textSize="15dp"
             android:padding="10dp"
-            android:textColor="#363636"/>
+            android:textColor="@color/tv_color"/>
 
     </RelativeLayout>
     <View
         android:id="@+id/xian"
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:background="#F4F5F6"
+        android:background="@color/xian"
         android:layout_below="@+id/ll2"
         />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/main_bg_color">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,7 +47,7 @@
             android:layout_centerVertical="true"
             android:textSize="15dp"
             android:padding="10dp"
-            android:textColor="#363636"
+            android:textColor="@color/tv_color"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -53,12 +56,13 @@
             android:textSize="15dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:textColor="#ACACAC"/>
+            android:textColor="@color/xiaozi"/>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/main_bg_color">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,7 +70,7 @@
             android:layout_centerVertical="true"
             android:textSize="15dp"
             android:padding="10dp"
-            android:textColor="#363636"
+            android:textColor="@color/tv_color"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -75,13 +79,14 @@
             android:textSize="15dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:textColor="#ACACAC"/>
+            android:textColor="@color/xiaozi"/>
     </RelativeLayout>
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/main_bg_color">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -89,21 +94,25 @@
             android:layout_centerVertical="true"
             android:textSize="15dp"
             android:padding="10dp"
-            android:textColor="#363636"
+            android:textColor="@color/tv_color"
             />
 
-        <ImageView
+        <Switch
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/rightoff"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:thumb="@drawable/tack"
+            android:track="@drawable/thume"
+            android:layout_centerVertical="true"
 
+            />
     </RelativeLayout>
-
-
     <RelativeLayout
+        android:id="@+id/wifi"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/main_bg_color">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -111,7 +120,7 @@
             android:layout_centerVertical="true"
             android:textSize="15dp"
             android:padding="10dp"
-            android:textColor="#363636"
+            android:textColor="@color/tv_color"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -120,12 +129,13 @@
             android:textSize="15dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:textColor="#ACACAC"/>
+            android:textColor="@color/xiaozi"/>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/main_bg_color">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -133,7 +143,7 @@
             android:layout_centerVertical="true"
             android:textSize="15dp"
             android:padding="10dp"
-            android:textColor="#363636"
+            android:textColor="@color/tv_color"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -142,7 +152,7 @@
             android:textSize="15dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:textColor="#ACACAC"/>
+            android:textColor="@color/xiaozi"/>
     </RelativeLayout>
 
 
@@ -156,28 +166,36 @@
             android:layout_centerVertical="true"
             android:textSize="15dp"
             android:padding="10dp"
-            android:textColor="#363636"
+            android:textColor="@color/tv_color"
             />
 
-        <ImageView
+        <Switch
+            android:id="@+id/tuisong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/on"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:thumb="@drawable/tack"
+            android:track="@drawable/thume"
+            android:layout_centerVertical="true"
+
+            />
 
     </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:background="#F4F5F6"
+        android:background="@color/xian"
         android:layout_below="@+id/ll2"
         />
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/main_bg_color"
+        android:onClick="lixian"
+        android:id="@+id/lixian">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -185,7 +203,7 @@
             android:layout_centerVertical="true"
             android:textSize="15dp"
             android:padding="10dp"
-            android:textColor="#363636"
+            android:textColor="@color/tv_color"
             />
         <ImageView
             android:layout_width="30dp"
@@ -199,7 +217,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/main_bg_color">
         <TextView
             android:id="@+id/banben"
             android:layout_width="wrap_content"
@@ -208,7 +227,7 @@
             android:layout_centerVertical="true"
             android:textSize="15dp"
             android:padding="10dp"
-            android:textColor="#363636"
+            android:textColor="@color/tv_color"
             />
         <ImageView
             android:layout_width="wrap_content"
@@ -225,7 +244,7 @@
             android:textSize="15dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:textColor="#ACACAC"/>
+            android:textColor="@color/xiaozi"/>
     </RelativeLayout>
 
     <RelativeLayout

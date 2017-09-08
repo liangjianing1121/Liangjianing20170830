@@ -68,6 +68,7 @@
 
 
     <LinearLayout
+        android:background="@color/main_bg_color"
         android:id="@+id/ll2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -111,7 +112,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="收藏"
+                android:text="历史"
                 android:textColor="#535353"/>
         </LinearLayout>
 
@@ -123,13 +124,14 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/night"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/yejian"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="收藏"
+                android:text="夜间"
                 android:textColor="#535353"/>
         </LinearLayout>
 
@@ -140,7 +142,7 @@
         android:id="@+id/xian"
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:background="#F4F5F6"
+        android:background="@color/xian"
         android:layout_below="@+id/ll2"
         />
 
@@ -148,7 +150,8 @@
         android:id="@+id/r1"
         android:layout_below="@+id/xian"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/main_bg_color">
 
         <TextView
             android:layout_width="wrap_content"
@@ -156,7 +159,7 @@
             android:text="我的关注"
             android:textSize="15sp"
             android:padding="10dp"
-            android:textColor="#363636"/>
+            android:textColor="@color/tv_color"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -175,7 +178,7 @@
             android:padding="10dp"
             android:layout_alignRight="@+id/jiantou"
             android:layout_marginRight="10dp"
-            android:textColor="#363636"/>
+            android:textColor="@color/tv_color"/>
         <ImageView
             android:id="@+id/jiantou"
             android:layout_width="wrap_content"
@@ -186,18 +189,15 @@
             android:layout_centerVertical="true"/>
     </RelativeLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#E8E8E8"
-        />
+
 
 
     <RelativeLayout
         android:id="@+id/r2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/r1">
+        android:layout_below="@+id/r1"
+        android:background="@color/main_bg_color">
 
         <TextView
             android:layout_width="wrap_content"
@@ -205,7 +205,7 @@
             android:text="消息通知"
             android:textSize="15sp"
             android:padding="10dp"
-            android:textColor="#363636"/>
+            android:textColor="@color/tv_color"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -221,7 +221,7 @@
         android:id="@+id/xian2"
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:background="#F4F5F6"
+        android:background="@color/xian"
         android:layout_below="@+id/r2"
         />
 
@@ -230,7 +230,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/xian2">
+        android:layout_below="@+id/xian2"
+        android:background="@color/main_bg_color">
 
         <TextView
             android:layout_width="wrap_content"
@@ -238,7 +239,7 @@
             android:text="头条商城"
             android:textSize="15sp"
             android:padding="10dp"
-            android:textColor="#363636"/>
+            android:textColor="@color/tv_color"/>
 
 
         <TextView
@@ -247,7 +248,7 @@
             android:text="邀请好友的200奖励金"
             android:textSize="15sp"
             android:padding="10dp"
-            android:textColor="#ACACAC"
+            android:textColor="@color/xiaozi"
             android:layout_alignRight="@+id/jiantou2"
             android:layout_marginRight="20dp"/>
 
@@ -270,7 +271,8 @@
         android:id="@+id/r3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/xian2">
+        android:layout_below="@+id/xian2"
+        android:background="@color/main_bg_color">
 
         <TextView
             android:layout_width="wrap_content"
@@ -278,7 +280,7 @@
             android:text="京东特供"
             android:textSize="15sp"
             android:padding="10dp"
-            android:textColor="#363636"/>
+            android:textColor="@color/tv_color"/>
 
 
         <TextView
@@ -287,7 +289,7 @@
             android:text="新人领188红包"
             android:textSize="15sp"
             android:padding="10dp"
-            android:textColor="#ACACAC"
+            android:textColor="@color/xiaozi"
             android:layout_alignRight="@+id/jiantou4"
             android:layout_marginRight="20dp"/>
 
@@ -310,7 +312,7 @@
         android:id="@+id/xian3"
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:background="#F4F5F6"
+        android:background="@color/xian"
         android:layout_below="@+id/r2"
         />
 
@@ -318,7 +320,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/xian2">
+        android:layout_below="@+id/xian2"
+        android:background="@color/main_bg_color">
 
         <TextView
             android:layout_width="wrap_content"
@@ -326,7 +329,7 @@
             android:text="我要爆料"
             android:textSize="15sp"
             android:padding="10dp"
-            android:textColor="#363636"/>
+            android:textColor="@color/tv_color"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -342,7 +345,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/xian2">
+        android:layout_below="@+id/xian2"
+        android:background="@color/main_bg_color">
 
         <TextView
             android:layout_width="wrap_content"
@@ -350,7 +354,7 @@
             android:text="用户反馈"
             android:textSize="15sp"
             android:padding="10dp"
-            android:textColor="#363636"/>
+            android:textColor="@color/tv_color"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -365,7 +369,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/xian2">
+        android:layout_below="@+id/xian2"
+        android:background="@color/main_bg_color">
 
         <TextView
             android:layout_width="wrap_content"
@@ -373,7 +378,7 @@
             android:text="系统设置"
             android:textSize="15sp"
             android:padding="10dp"
-            android:textColor="#363636"/>
+            android:textColor="@color/tv_color"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

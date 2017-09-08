@@ -96,7 +96,7 @@ public class HorizontalScrollViewMenu extends LinearLayout implements ViewPager.
 
     private void drawHscrollView() {
 
-        mLinear.setBackgroundColor(Color.rgb(213,230,246));
+        //mLinear.setBackgroundColor(Color.rgb(213,230,246));
 
             for (int i = 0; i < count; i++) {
                 String s = list.get(i);
@@ -117,6 +117,13 @@ public class HorizontalScrollViewMenu extends LinearLayout implements ViewPager.
             topViews.get(0).setSelected(true);
     }
 
+
+
+    public void update(){
+        mLinear.removeAllViews();
+
+
+    }
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
